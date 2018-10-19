@@ -37,6 +37,12 @@ $('document').ready(function() {
     $('#add-text-btn').click(function() {
         var wordCount = $('#text-num').val();
 
+        if(!selectedText) {
+            $('#main-text-area').val("Please select an author's text.");
+            $('input').val("");
+            return
+        }
+
         var chosenText = selectedText.split(" ", wordCount).join(" ");
 
         $('#main-text-area').val(chosenText);
