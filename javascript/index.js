@@ -7,12 +7,28 @@ const calvinoText = "From there, after six days and seven nights, you arrive at 
 // make variables for buttons and text areas
 const addTextButton = document.querySelector('#add-text-btn');
 const textArea = document.querySelector('#main-text-area');
+const textButtons = document.querySelectorAll('.btn-text-choice');
+const wordCountInput = document.querySelector('#text-num');
+const clearTextButton = document.querySelector('#refresh-text');
 
 // functions for event listeners
 function addText() {
-    // create the text node to add to text area from chosen text
-    chosenText = melvilleText.split(' ', 50).join(' ');
+    const wordCount = wordCountInput.value;
+    chosenText = melvilleText.split(' ', wordCount).join(' ');
     textArea.innerHTML = chosenText;
+    wordCountInput.value = '';
 }
 
+function selectText() {
+    alert("slected!");
+}
+
+function clearText() {
+    textArea.innerHTML = '';
+}
+
+textButtons.forEach(button => button.addEventListener('click', selectText));
+
 addTextButton.addEventListener('click', addText);
+
+clearTextButton.addEventListener('click', clearText);
