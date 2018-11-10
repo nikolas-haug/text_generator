@@ -11,22 +11,39 @@ const textButtons = document.querySelectorAll('.btn-text-choice');
 const wordCountInput = document.querySelector('#text-num');
 const clearTextButton = document.querySelector('#refresh-text');
 
+let chosenText = null;
+
 // functions for event listeners
-function addText() {
-    const wordCount = wordCountInput.value;
-    chosenText = melvilleText.split(' ', wordCount).join(' ');
-    textArea.innerHTML = chosenText;
-    wordCountInput.value = '';
+function selectText() {
+    console.log(this.getAttribute('data-author'));
+    let newChoice = this.getAttribute('data-author');
+    switch(newChoice) {
+        case 'melville':
+        chosenText = melvilleText;
+        break;
+        case 'calvino':
+        chosenText = calvinoText;
+        break;
+        default:
+        chosenText = null;
+    }
 }
 
-function selectText() {
-    alert("slected!");
+function addText() {
+    if(!chosenText) {
+        alert('please choose a text!');
+        return;
+    }
+    const wordCount = wordCountInput.value;
+    textArea.innerHTML = chosenText.split(' ', wordCount).join(' ');;
+    wordCountInput.value = '';
 }
 
 function clearText() {
     textArea.innerHTML = '';
 }
 
+// event listeners for buttons
 textButtons.forEach(button => button.addEventListener('click', selectText));
 
 addTextButton.addEventListener('click', addText);
