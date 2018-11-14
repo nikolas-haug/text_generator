@@ -54,13 +54,6 @@ function copyText() {
     document.execCommand('copy');
 }
 
-// function myFunction() {
-//     var copyText = document.getElementById("myInput");
-//     copyText.select();
-//     document.execCommand("copy");
-//     alert("Copied the text: " + copyText.value);
-//   }
-
 // event listeners for buttons
 textButtons.forEach(button => button.addEventListener('click', selectText));
 
