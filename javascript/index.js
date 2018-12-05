@@ -41,7 +41,9 @@ function selectText() {
 }
 
 function addText() {
+    // check if there is a chosen text
     if(!chosenText) {
+        wordCountInput.value = '';
         alert('please choose a text!');
         return;
     }
@@ -50,8 +52,10 @@ function addText() {
     wordCountInput.value = '';
 }
 
+// clear textarea and reset chosen text variable
 function clearText() {
     textArea.innerHTML = '';
+    chosenText = null;
 }
 
 function copyText() {
@@ -62,7 +66,7 @@ function copyText() {
 // event listeners for buttons
 textButtons.forEach(button => button.addEventListener('click', selectText));
 
-addTextButton.addEventListener('click', addText);
+// addTextButton.addEventListener('click', addText);
 
 clearTextButton.addEventListener('click', clearText);
 

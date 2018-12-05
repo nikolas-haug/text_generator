@@ -21,7 +21,7 @@
 
     <h1 class="text-center">text generator</h1>
 
-    <hr>
+    <!-- <hr> -->
 
     <!-- body container -->
     <div class="container text-center py-5">
@@ -29,17 +29,21 @@
     <!-- make the inputs for length of text -->
 
         <div>
-            <h5>number of words to add</h4>
-            <input id="text-num" type="number">
 
-    <!-- make submit button for adding text to text area -->
-            <button id="add-text-btn">submit</button>
+            <h5>number of words to add</h4>
+                <form onsubmit="addText(); return false">
+                <input id="text-num" type="number">
+
+            <!-- make submit button for adding text to text area -->
+                <button id="add-text-btn" class="mb-1">submit</button>
+            </form>
+            
         </div>
 
     <!-- make a text area for the text display -->
 
         <div>
-            <textarea name="text-space" id="main-text-area" cols="50" rows="10" readonly></textarea>
+            <textarea name="text-space" id="main-text-area" cols="70" rows="10" readonly></textarea>
         </div>
     
     <!-- make a refresh button for clearing the text area -->
